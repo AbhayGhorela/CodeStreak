@@ -1,0 +1,219 @@
+/* Global Variables & Dark Mode Theme */
+:root {
+  --primary-color: #58cc02; /* Duolingo Green */
+  --secondary-color: #ff9600; /* Fire Orange */
+  --danger-color: #ff4b4b;
+  --info-color: #1cb0f6;
+  
+  --bg-color: #131618; /* Dark background */
+  --card-bg: #1f2225;
+  --border-color: #37464f;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #afb8c1;
+  
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  --radius: 16px;
+  --transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-hover: 0 10px 15px rgba(0,0,0,0.2);
+  
+  --dark-bg: #181b1e; /* Fixed: Defined variable for inputs */
+}
+
+/* --- FORM ELEMENTS --- */
+/* Custom Select Styling for Mobile Dark Mode */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.5rem;
+    padding-right: 2.5rem !important; /* Make room for arrow */
+    cursor: pointer;
+}
+
+/* Dropdown Options */
+select option {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 10px;
+}
+
+/* Fix for IE/Edge */
+select::-ms-expand {
+    display: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- LAYOUT GRID --- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  min-height: 100vh;
+}
+
+/* Mobile First: Single Column Stack */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+/* Tablet & Desktop: 2-Column Grid */
+@media (min-width: 768px) {
+    .container {
+        padding: var(--spacing-lg);
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    .span-2 {
+        grid-column: span 2;
+    }
+}
+
+/* --- COMPONENTS --- */
+.card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  margin-bottom: 0;
+  transition: var(--transition);
+  box-shadow: 0 4px 0 var(--border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Desktop Hover Effects */
+@media (hover: hover) {
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--border-color);
+      border-color: #555;
+    }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile: Stack forms */
+@media (max-width: 600px) {
+    form .flex {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    form .flex input, form .flex select {
+        width: 100%;
+        margin-bottom: 10px; /* spacing when stacked */
+    }
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+
+/* Typography Scaling */
+h1, h2, h3 {
+  font-weight: 800;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+h3 {
+    font-size: clamp(1rem, 4vw, 1.25rem); /* Responsive headings */
+}
+
+/* Buttons */
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 12px;
+  padding: 14px 24px; /* Larger touch target */
+  transition: all 0.1s;
+  min-height: 52px; /* Ensure 48px+ touch target */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-bottom: 4px solid #46a302;
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  border-bottom-width: 0;
+  margin-top: 4px;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: #fff;
+  border-bottom: 4px solid #d42a2a;
+}
+
+.btn-danger:active {
+  transform: translateY(2px);
+  border-bottom-width: 0;
+  margin-top: 4px;
+}
+
+input, select {
+  font-family: inherit;
+  background: #181b1e;
+  border: 2px solid var(--border-color);
+  color: white;
+  padding: 14px; /* Larger touch area */
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--info-color);
+}
+
+/* Timer Specific Text */
+.timer-display {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-variant-numeric: tabular-nums;
+}

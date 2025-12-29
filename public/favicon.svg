@@ -1,0 +1,26 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background: Dark Squircle -->
+    <rect x="0" y="0" width="64" height="64" rx="16" fill="#181b1e"/>
+    
+    <!-- Left Bracket < (Green) -->
+    <path d="M18 32 L26 22 H30 L22 32 L30 42 H26 L18 32Z" fill="#58cc02"/>
+    
+    <!-- Right Bracket > (Green) -->
+    <path d="M46 32 L38 22 H34 L42 32 L34 42 H38 L46 32Z" fill="#58cc02"/>
+    
+    <!-- Flame (Orange) -->
+    <path d="M32 14 
+             C32 14, 26 22, 26 29 
+             C26 35, 29 38, 32 38 
+             C35 38, 38 35, 38 29 
+             C38 22, 32 14, 32 14 Z" 
+          fill="#ff9600"/>
+          
+    <!-- Flame Inner Core (Lighter Orange/Yellow) -->
+    <path d="M32 22 
+             C32 22, 29 26, 29 29 
+             C29 31, 30.5 32, 32 32 
+             C33.5 32, 35 31, 35 29 
+             C35 26, 32 22, 32 22 Z" 
+          fill="#ffd700"/>
+</svg>
